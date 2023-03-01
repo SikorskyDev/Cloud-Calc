@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Cloud-Calc/static/css/main.e6c13ad2.css",
-    "main.js": "/Cloud-Calc/static/js/main.28d0255b.js",
+    "main.js": "/Cloud-Calc/static/js/main.4984b02f.js",
     "index.html": "/Cloud-Calc/index.html",
     "main.e6c13ad2.css.map": "/Cloud-Calc/static/css/main.e6c13ad2.css.map",
-    "main.28d0255b.js.map": "/Cloud-Calc/static/js/main.28d0255b.js.map"
+    "main.4984b02f.js.map": "/Cloud-Calc/static/js/main.4984b02f.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.28d0255b.js"
+    "static/js/main.4984b02f.js"
   ]
 }
