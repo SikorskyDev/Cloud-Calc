@@ -70,4 +70,4 @@ function InputsComponent({storageValue, setStorageValue, transferValue, setTrans
     );
 }
 
-export default InputsComponent;
+export default React.memo(InputsComponent);

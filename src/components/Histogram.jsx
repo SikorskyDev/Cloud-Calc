@@ -195,4 +195,4 @@ function Histogram({ selectedOptionForBunny, setSelectedOptionForBunny, selected
     )
 }
 
-export default Histogram;
+export default React.memo(Histogram);

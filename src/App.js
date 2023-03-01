@@ -14,8 +14,8 @@ const Calc = styled.div`
     display: flex;
     flex-direction: column;
     gap: 40px;
-    @media(max-width: 768px) {
-        flex-direction:column-reverse;
+    @media (max-width: 768px) {
+        flex-direction: column-reverse;
     }
 `;
 
@@ -47,7 +47,7 @@ function App() {
     const [priceForVultr, setPriceForVultr] = React.useState(0);
 
     //! ------------- Функції розрахунку цін та задання розміру колонкам відповідно до цін ------------------
-    const calculateBackblazePrice = () => {
+    const calculateBackblazePrice = React.useCallback(() => {
         const storageStep = 0.005;
         const transferStep = 0.01;
 
@@ -63,9 +63,9 @@ function App() {
             setPriceForBackblaze(roundToTwo(price));
             setSizeForBackblaze(roundToTwo(price));
         }
-    };
+    }, [storageValue, transferValue]);
 
-    const calculateBunnyHDDPrice = () => {
+    const calculateBunnyHDDPrice = React.useCallback(() => {
         const storageStep = 0.01;
         const transferStep = 0.01;
         let price = storageStep * storageValue + transferStep * transferValue;
@@ -76,8 +76,9 @@ function App() {
             setPriceForBunny(10);
             setSizeForBunny(10);
         }
-    };
-    const calculateBunnySSDPrice = () => {
+    }, [storageValue, transferValue]);
+
+    const calculateBunnySSDPrice = React.useCallback(() => {
         const storageStep = 0.02;
         const transferStep = 0.01;
         let price = storageStep * storageValue + transferStep * transferValue;
@@ -88,9 +89,9 @@ function App() {
             setPriceForBunny(10);
             setSizeForBunny(roundToTwo(10));
         }
-    };
+    }, [storageValue, transferValue]);
 
-    const calculateScalewayMultiPrice = () => {
+    const calculateScalewayMultiPrice = React.useCallback(() => {
         const storageStep = 0.06;
         const transferStep = 0.02;
 
@@ -104,8 +105,9 @@ function App() {
             setPriceForScaleway(roundToTwo(price));
             setSizeForScaleway(roundToTwo(price));
         }
-    };
-    const calculateScalewaySinglePrice = () => {
+    }, [storageValue, transferValue]);
+
+    const calculateScalewaySinglePrice = React.useCallback(() => {
         const storageStep = 0.03;
         const transferStep = 0.02;
 
@@ -119,9 +121,9 @@ function App() {
             setPriceForScaleway(roundToTwo(price));
             setSizeForScaleway(roundToTwo(price));
         }
-    };
+    }, [storageValue, transferValue]);
 
-    const calculateVultrPrice = () => {
+    const calculateVultrPrice = React.useCallback(() => {
         const storageStep = 0.01;
         const transferStep = 0.01;
 
@@ -136,7 +138,7 @@ function App() {
             setPriceForVultr(roundToTwo(price));
             setSizeForVultr(roundToTwo(price));
         }
-    };
+    }, [storageValue, transferValue]);
 
     React.useEffect(() => {
         calculateBackblazePrice();
@@ -151,7 +153,12 @@ function App() {
         } else {
             calculateScalewayMultiPrice();
         }
-    }, [storageValue, transferValue, selectedOptionForBunny, selectedOptionForScaleWay]);
+    }, [
+        storageValue,
+        transferValue,
+        selectedOptionForBunny,
+        selectedOptionForScaleWay,
+    ]);
 
     const providers = [
         { name: "Backblaze", price: priceForBackblaze },
