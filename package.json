@@ -2,6 +2,7 @@
   "name": "byte_cloud_technologies",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://sikorskydev.github.io/Cloud-Calc/",
   "resolutions": {
     "styled-components": "^5"
   },
